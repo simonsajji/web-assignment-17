@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        // TO-DO List -To create a TODO list we need an array
+
+        var todo=[];
+
+         //Functionality Number 1.
+        function add_item(new_item) {
+            todo.push(new_item);
+        }
+
+        //Functionality Number 2.
+        function show_list() {
+            var string="TO-DO List-Simon\n\n";
+            for(var i = 0; i < todo.length; i = i + 1) {
+                string+=i+1 +". "+todo[i]+"\n";
+                
+            }
+            console.log(string);
+        }
+
+        // Function -3 > Mark item as done
+
+        function mark_item(index){
+
+            for(var i=0;i<todo.length;i++){
+                if(index===i){
+                    todo[i]=todo[i]+" ✓";
+                }
+            }
+
+        }
+
+        // function -4> edit any item
+
+        // The user is asked for the index and the edited value so the existing value in that index is replaced with the edited value.
+
+        function edit_item(i,edit){
+
+            todo[i]=edit;
+
+
+        }
+
+        // Delete any item based on the index entered by the User
+
+        function del_item(index){
+
+            var deleted_value = todo.splice(index, 1)[0];
+
+            console.log("THe item deleted from array is: ",deleted_value);
+            console.log("The array after the modificaton",todo);
+
+        }
+
+
+        // Adding 4 items to the list.
+        add_item("Study Datascience");
+        add_item("Do Javascript Assignment");
+        add_item("Go to the market");
+        add_item("Buy a cycle");
+
+        // Displaying 4 items of the list
+
+        show_list();
+
+        // Deleting item 3  ie; index=2---"Go to market".
+        del_item(2);
+
+        // Displaying the list after modification(deletion)
+
+        show_list();
+
+        // Ticking the items that are done.
+
+        mark_item(0);
+        mark_item(1);
+
+        // showing the list after marking two items
+
+        show_list();
+
+        // editing an item 
+
+        edit_item(2,"Buy a chocolate");
+
+        // displaying after editing 
+
+        show_list();
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
